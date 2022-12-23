@@ -1,0 +1,61 @@
+<%- include("includes/head"); %>
+
+<%- include("includes/nav"); %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-l-2"></div>
+
+        <div class="col-l-8 my-5">
+            <h1 class="text-center">Login</h1>
+
+            <p class="text-center lead">Sign in or Sign up</p>
+
+            <div class="row">
+                <div class="col-lg">
+                    <h4>Make your account</h4>
+
+                    <form action="/login/register" method="post">
+                        <input type="hidden" name="_csrf" value=<%=  %> >
+
+                        <div class="mb-3">
+                            <label>Your e-mail</label>
+                            <input type="email" class="form-control" name="email">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label>Your password</label>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Sign up</button>
+                    </form>
+                </div>
+
+                <div class="col-lg">
+                    <h4>Login in the system</h4>
+
+                    <form action="/login/login" method="post">
+                        <input type="hidden" name="_csrf" value=<%=  %> >
+
+                        <div class="mb-3">
+                            <label>Your e-mail</label>
+                            <input type="email" class="form-control" name="email">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label>Your password</label>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Sign in</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-l-2"></div>
+    </div>
+</div>
+
+<%- include("includes/footer"); %>
