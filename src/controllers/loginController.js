@@ -4,13 +4,26 @@ exports.index = (req, res) => {
     res.render("login");
 };
 
-exports.register = (req, res) => {
-    const login = new Login(req.body);
+exports.register = async function(req, res) {
+    try {
+        const login = new Login(req.body);
+        await login.register();
 
-    login.register();
+        if(login.errors.length > 0) {
+            req.flash("errors", login.errors);
+            req.session.save(function() {
+                return res.redirect("/login");
+            });
+            return;
+        }
 
-    res.send(login.errors);
-    // if(login.errors.length )
+        req.flash("success", "Your user has been created successfully");
+        req.session.save(function() {
+            return res.redirect("/login");
+        });
+    } catch(e) {
+        console.log(e);
 
-    res.send(login.body);
+        return res.render("404");
+    }
 };

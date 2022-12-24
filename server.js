@@ -20,17 +20,6 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 
-// USER MODULES
-const routes = require("./routes");
-const myMiddleware = require("./src/middlewares/middleware");
-
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.resolve(__dirname, "public")));
-
-app.use(myMiddleware);
-
-
 const sessionOptions = session({
     secret: "gfsdgdfgsdgsdfsdfg()",
     store: MongoStore.create({ mongoUrl: process.env.CONNECTIONSTRING }),
@@ -42,7 +31,18 @@ const sessionOptions = session({
     }
 });
 app.use(sessionOptions);
+
 app.use(flash());
+
+// USER MODULES
+const routes = require("./routes");
+const myMiddleware = require("./src/middlewares/middleware");
+
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.resolve(__dirname, "public")));
+
+app.use(myMiddleware);
 
 app.set("views", path.resolve(__dirname, "src", "views"));
 app.set("view engine", "ejs");
