@@ -35,14 +35,33 @@ function Contact(body) {
     this.contact = null;
 }
 
+// STATIC METHODS
+// READ METHODS
 Contact.findById = async function(id) {
     if(typeof id !== "string") return;
 
-    const user = await ContactModel.findById(id);
+    const contact = await ContactModel.findById(id);
 
-    return user;
+    return contact;
 };
 
+Contact.findAll = async function() {
+    const contacts = await ContactModel.find()
+        .sort({ createdIn: -1 });
+
+    return contacts;
+};
+
+// DELETE METHODS
+Contact.delete = async function(id) {
+    if(typeof id !== "string") return;
+
+    const contact = await ContactModel.findOneAndDelete({ _id: id });
+
+    return contact;
+};
+
+// PROTOTYPE FUNCTIONS
 Contact.prototype.register = async function() {
     this.validate();
 

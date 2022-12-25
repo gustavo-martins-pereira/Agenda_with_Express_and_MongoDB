@@ -26,6 +26,7 @@ route.post("/login/login", loginController.login);
 // GET
 route.get("/contact", loginRequired, contactController.index);
 route.get("/contact/:id", loginRequired, contactController.editIndex);
+route.get("/contact/delete/:id", loginRequired, contactController.delete);
 
 // POST
 route.post("/contact/register", loginRequired, contactController.register);
