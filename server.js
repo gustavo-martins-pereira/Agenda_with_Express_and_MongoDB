@@ -36,13 +36,13 @@ app.use(flash());
 
 // USER MODULES
 const routes = require("./routes");
-const myMiddleware = require("./src/middlewares/middleware");
+const { globalMiddleware } = require("./src/middlewares/middleware");
 
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, "public")));
 
-app.use(myMiddleware);
+app.use(globalMiddleware);
 
 app.set("views", path.resolve(__dirname, "src", "views"));
 app.set("view engine", "ejs");
