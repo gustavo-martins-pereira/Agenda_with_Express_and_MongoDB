@@ -25,9 +25,10 @@ route.post("/login/login", loginController.login);
 /* CONTACT */
 // GET
 route.get("/contact", loginRequired, contactController.index);
-route.get("/contact/:id", loginRequired, contactController.edit)
+route.get("/contact/:id", loginRequired, contactController.editIndex);
 
 // POST
 route.post("/contact/register", loginRequired, contactController.register);
+route.post("/contact/edit/:id", loginRequired, contactController.edit);
 
 module.exports = route;

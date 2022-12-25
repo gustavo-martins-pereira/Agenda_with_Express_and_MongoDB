@@ -41,7 +41,7 @@ Contact.findById = async function(id) {
     const user = await ContactModel.findById(id);
 
     return user;
-}
+};
 
 Contact.prototype.register = async function() {
     this.validate();
@@ -57,7 +57,7 @@ Contact.prototype.validate = function() {
     if(this.body.email && !validator.isEmail(this.body.email)) this.errors.push("Invalid e-mail");
     if(!this.body.firstName) this.errors.push("First name is a mandatory field");
     if(!this.body.email && !this.body.phoneNumber) this.errors.push("At least one contact needs to be sent: E-mail or Phonenumber");
-}
+};
 
 Contact.prototype.cleanUp = function() {
     for(const key in this.body) {
@@ -72,6 +72,16 @@ Contact.prototype.cleanUp = function() {
         email: this.body.email,
         phoneNumber: this.body.phoneNumber,
     }
-}
+};
+
+Contact.prototype.edit = async function(id) {
+    if(typeof id !== "string") return;
+
+    this.validate();
+
+    if(this.errors.length > 0) return;
+
+    this.contact = await ContactModel.findByIdAndUpdate(id, this.body, { new: true });
+};
 
 module.exports = Contact;
