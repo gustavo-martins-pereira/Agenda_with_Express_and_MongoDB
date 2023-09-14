@@ -14,7 +14,7 @@ Projeto feito em **Node** em conjunto com o **Express** para a criação de uma 
 
 ## &#x2699; Configurações Iniciais
 
-> IMPORTANTE! O projeto funciona na versão v16.20.0 (LTS) do Node, pode ser que em uma versão diferente o projeto não funcione como esperado, neste caso use o [NVM](https://github.com/nvm-sh/nvm) para gerenciar as versões do Node no seu computador
+> IMPORTANTE! O projeto funciona na versão v16.20.0 (LTS) do Node, pode ser que em uma versão diferente o projeto não funcione como esperado, neste caso use o [NVM](https://github.com/coreybutler/nvm-windows) para gerenciar as versões do Node no seu computador
 
 1. Depois de clonado este repositório, abra um terminal na pasta raiz do projeto e digite o comando:
 
