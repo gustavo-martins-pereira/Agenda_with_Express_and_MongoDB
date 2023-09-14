@@ -4,8 +4,6 @@ Projeto feito em **Node** em conjunto com o **Express** para a criação de uma 
 
 ![System overview](./gifs/program_resumed.gif)
 
-> O arquivo *.env* **NÃO** foi incluido no projeto por questões de segurança, no arquivo *.env-example*, coloque a **SUA** string de conexão do seu banco do MongoDB, para o projeto funcionar no seu ambiente.
-
 ***
 
 ## &#x1F9F0; Ferramentas Necessárias
@@ -15,6 +13,8 @@ Projeto feito em **Node** em conjunto com o **Express** para a criação de uma 
 ***
 
 ## &#x2699; Configurações Iniciais
+
+> IMPORTANTE! O projeto funciona na versão v16.20.0 (LTS) do Node, pode ser que em uma versão diferente o projeto não funcione como esperado, neste caso use o [NVM](https://github.com/nvm-sh/nvm) para gerenciar as versões do Node no seu computador
 
 1. Depois de clonado este repositório, abra um terminal na pasta raiz do projeto e digite o comando:
 
